@@ -1,0 +1,28 @@
+services:
+
+  db-mysql:
+    image: mysql:9.7.2
+    ports:
+      - "${MYSQL_PORT}:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_NAME}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASS}
+    volumes:
+      - db-mysql-data:/var/lib/mysql
+
+  db-postgres:
+    image: postgres:18.6
+    ports:
+      - "${POSTGRES_PORT}:5432"
+    environment:
+      POSTGRES_DB: ${POSTGRES_NAME}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASS}
+    volumes:
+      - db-postgres-data:/var/lib/postgresql
+
+volumes:
+  db-mysql-data:
+  db-postgres-data:

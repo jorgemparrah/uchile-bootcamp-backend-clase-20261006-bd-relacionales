@@ -25,37 +25,37 @@ erDiagram
     }
 
     RECINTO {
-        VARCHAR(64) id PK
+        INT id PK
         VARCHAR(100) nombre
         VARCHAR(200) direccion
         INT capacidad
     }
 
     EVENTO {
-        VARCHAR(16) id PK
+        INT id PK
         VARCHAR(100) nombre
         DATE fecha
         INT capacidad
         BOOLEAN activo
-        VARCHAR(64) recinto_id FK
+        INT recinto_id FK
     }
 
     ACTIVIDAD {
-        VARCHAR(64) id PK
+        INT id PK
         VARCHAR(100) nombre
-        VARCHAR(16) evento_id FK
+        INT evento_id FK
     }
 
     COMPRA {
         INT id PK
         VARCHAR(64) usuario_id FK
-        VARCHAR(16) evento_id FK
+        INT evento_id FK
         INT tipo_entrada_id FK
         DATE fecha
     }
 
     ENTRADA {
-        VARCHAR(16) evento_id FK, PK
+        INT evento_id FK, PK
         INT tipo_entrada_id FK, PK
         INT precio
     }
@@ -67,6 +67,6 @@ erDiagram
 
     INSCRIPCION {
         VARCHAR(64) usuario_id PK, FK
-        VARCHAR(64) actividad_id PK, FK
+        INT actividad_id PK, FK
     }
 ```

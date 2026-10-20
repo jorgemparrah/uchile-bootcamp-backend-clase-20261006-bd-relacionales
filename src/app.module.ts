@@ -1,10 +1,16 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { RecintoController } from './recinto.controller';
+import { RecintoService } from './recinto.service';
+import { ConfigModule } from '@nestjs/config';
+import { ConexionMysql } from './conexion.mysql';
+import { RecintoRepository } from './recinto.repository';
+import { ConexionPostgres } from './conexion.postgres';
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [
+    ConfigModule.forRoot()
+  ],
+  controllers: [RecintoController],
+  providers: [ConexionMysql, ConexionPostgres, RecintoService, RecintoRepository],
 })
 export class AppModule {}
