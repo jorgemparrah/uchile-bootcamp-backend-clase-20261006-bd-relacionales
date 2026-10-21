@@ -185,3 +185,7 @@ INSERT INTO compra (id, usuario_id, evento_id, tipo_entrada_id, fecha) VALUES
   (5, '6', 2, 2, '2026-10-09'),
   (6, '6', 3, 1, '2026-10-10'),
   (7, '6', 1, 1, '2026-10-11');
+
+ALTER TABLE recinto
+  ADD COLUMN direccion VARCHAR(300) NOT NULL,
+  ADD COLUMN capacidad INT NOT NULL;
