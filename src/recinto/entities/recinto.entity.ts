@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryColumn } from "typeorm";
+import { Evento } from "../../evento/entities/evento.entity";
+import { Column, Entity, OneToMany, PrimaryColumn } from "typeorm";
 
 @Entity({ name: 'recinto' })
 export class Recinto {
@@ -14,5 +15,8 @@ export class Recinto {
 
   @Column({ name: 'capacidad' })
   capacidad: number;
+
+  @OneToMany(() => Evento,  (e) => e.recinto)
+  eventos: Evento[];
 
 }

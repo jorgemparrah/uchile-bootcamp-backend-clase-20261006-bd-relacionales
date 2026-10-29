@@ -13,4 +13,5 @@ export class GetRecintoDto {
 
   @ApiProperty({ description: 'Capacidad del recinto' })
   capacidad: number;
+
 }
